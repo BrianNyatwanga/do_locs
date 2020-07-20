@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+//internal imports
+import 'package:do_locs/pages/product_details.dart';
+
 class Products extends StatefulWidget {
   @override
   _ProductsState createState() => _ProductsState();
@@ -14,56 +17,68 @@ class _ProductsState extends State<Products> {
       //creating a map
       "name": "Blazer",
       "picture": "images/products/blazer1.jpeg",
-      "old_price": 120,
-      "price": 85,
+      "old_price": 4000,
+      "price": 3500,
     },
     {
-      "name": "Blazer",
+      "name": "Blazer 2",
       "picture": "images/products/blazer2.jpeg",
-      "old_price": 130,
-      "price": 85,
+      "old_price": 4500,
+      "price": 4000,
     },
     {
       "name": "Red dress",
       "picture": "images/products/dress1.jpeg",
-      "old_price": 100,
-      "price": 50,
+      "old_price": 1000,
+      "price": 500,
     },
     {
-      "name": "Blazer",
-      "picture": "images/products/blazer1.jpeg",
-      "old_price": 120,
-      "price": 85,
+      "name": "Black Dress",
+      "picture": "images/products/dress2.jpeg",
+      "old_price": 1000,
+      "price": 850,
     },
     {
-      "name": "Blazer",
-      "picture": "images/products/blazer1.jpeg",
-      "old_price": 120,
-      "price": 85,
+      "name": "Heels",
+      "picture": "images/products/hills1.jpeg",
+      "old_price": 12000,
+      "price": 9000,
     },
     {
-      "name": "Blazer",
-      "picture": "images/products/blazer1.jpeg",
-      "old_price": 120,
-      "price": 85,
+      "name": "Red Heels",
+      "picture": "images/products/hills2.jpeg",
+      "old_price": 12000,
+      "price": 8500,
     },
     {
-      "name": "Blazer",
-      "picture": "images/products/blazer1.jpeg",
-      "old_price": 120,
-      "price": 85,
+      "name": "Black pants",
+      "picture": "images/products/pants1.jpg",
+      "old_price": 1200,
+      "price": 850,
     },
     {
-      "name": "Blazer",
-      "picture": "images/products/blazer1.jpeg",
-      "old_price": 120,
-      "price": 85,
+      "name": "Sweat Pants",
+      "picture": "images/products/pants2.jpeg",
+      "old_price": 1000,
+      "price": 850,
     },
     {
-      "name": "Blazer",
-      "picture": "images/products/blazer1.jpeg",
-      "old_price": 120,
-      "price": 85,
+      "name": "Shoe",
+      "picture": "images/products/shoe1.jpg",
+      "old_price": 12000,
+      "price": 8500,
+    },
+    {
+      "name": "Blue Skirt",
+      "picture": "images/products/skt1.jpeg",
+      "old_price": 12000,
+      "price": 8500,
+    },
+    {
+      "name": "Pink Skirt",
+      "picture": "images/products/skt2.jpeg",
+      "old_price": 12000,
+      "price": 8500,
     },
   ];
 
@@ -107,27 +122,33 @@ class Single_prod extends StatelessWidget {
         tag: prod_name,
         child: Material(
           child: InkWell(
-            onTap: () {},
+            onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+                builder: (context) => new ProductDetails(
+                      //PASSING THE VALUES OF PROD DETAILS
+                      product_detail_name: prod_name,
+                      product_detail_new_price: prod_price,
+                      product_detail_old_price: prod_old_price,
+                      product_detail_picture: prod_picture,
+                    ))),
             child: GridTile(
               footer: Container(
                 color: Colors.white70, //white70 has opacity
-                child: ListTile(
-                  leading: Text(
-                    prod_name,
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  title: Text("\$$prod_price",
+                child: new Row(
+                  children: <Widget>[
+                    Expanded(
+                        child: Text(
+                      prod_name,
                       style: TextStyle(
-                        color: Colors.red,
-                        fontWeight: FontWeight.w800,
-                      )),
-                  subtitle: Text(
-                    "\$$prod_old_price",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w800,
-                        decoration: TextDecoration.lineThrough),
-                  ),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16.0,
+                      ),
+                    )),
+                    new Text(
+                      "Ksh $prod_price",
+                      style: TextStyle(
+                          color: Colors.red, fontWeight: FontWeight.bold),
+                    )
+                  ],
                 ), //the \ doesn't validate the first $
               ),
               child: Image.asset(
@@ -141,3 +162,22 @@ class Single_prod extends StatelessWidget {
     );
   }
 }
+/*ListTile(
+leading: Text(
+prod_name,
+style: TextStyle(fontWeight: FontWeight.bold),
+),
+title: Text("Ksh $prod_price",
+style: TextStyle(
+color: Colors.red,
+fontWeight: FontWeight.w800,
+)),
+subtitle: Text(
+"Ksh $prod_old_price",
+style: TextStyle(
+color: Colors.black,
+fontWeight: FontWeight.w800,
+decoration: TextDecoration.lineThrough),
+),
+),
+ */

@@ -24,21 +24,21 @@ class _HomepageState extends State<Homepage> {
     height: 150.0,
     child: new Carousel(
       boxFit: BoxFit.cover,
-      images:[
-        AssetImage('images/c1.jpg'),
-        AssetImage('images/m1.jpeg'),
-        AssetImage('images/m2.jpg'),
-        AssetImage('images/w1.jpeg'),
-        AssetImage('images/w3.jpeg'),
-        AssetImage('images/w4.jpeg'),
-      ],
-      autoplay: true,
-      animationCurve: Curves.fastLinearToSlowEaseIn,
-      animationDuration: Duration(milliseconds: 1000),
-      dotSize: 4.0,
-      //dotColor: ,
-      indicatorBgPadding: 4.0,
-    ),
+        images: [
+          AssetImage('images/c1.jpg'),
+          AssetImage('images/m1.jpeg'),
+          AssetImage('images/m2.jpg'),
+          AssetImage('images/w1.jpeg'),
+          AssetImage('images/w3.jpeg'),
+          AssetImage('images/w4.jpeg'),
+        ],
+        autoplay: false,
+        animationCurve: Curves.fastLinearToSlowEaseIn,
+        //animationDuration: Duration(milliseconds: 2000),
+        dotSize: 4.0,
+        //dotColor: ,
+        indicatorBgPadding: 4.0,
+      ),
   );
     return Scaffold(
       appBar: new AppBar(
@@ -131,29 +131,29 @@ class _HomepageState extends State<Homepage> {
           ],
         ),
       ),
+      //======================BODY========================================
       body: new ListView(
         children: <Widget>[
-          //IMAGE CAROUSEL begins Here
+//=======================IMAGE CAROUSEL==============================
           image_carousel,
-          //padding widget
-          new Padding(padding: const EdgeInsets.all(8.0),
-              child: new Text('Categories'),),
 
-          //Horizontal list view BEGINS HERE
+//=======================HORIZONTAL LIST VIEW =======================
+          new Padding(padding: const EdgeInsets.all(8.0),
+            child: new Text('Categories'),),
           HorizontalList(),
 
-          //padding widget
-          new Padding(padding: const EdgeInsets.all(15.0),
+//======================PRODUCTS=====================================
+          new Padding(padding: const EdgeInsets.all(8.0),
             child: new Text('Products'),),
 
-          //Grid view
+//=============Grid view
           Container(
-            height: 320.0,
+            height: 300.0,
             child: Products(),
           ),
-
-
-        ],
+          //MAKE PADDING AT BOTTOM OF GRID
+          //new Padding(padding: const EdgeInsets.all(8.0)),
+        ]
       ),
     );
   }
