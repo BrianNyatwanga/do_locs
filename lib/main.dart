@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'home.dart';
+import 'package:carousel_pro/carousel_pro.dart';
+// OWN IMPORTS
+import 'package:do_locs/components/horizontal_listview.dart';
+import 'package:do_locs/components/products.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -17,8 +20,29 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
+  Widget image_carousel = new Container(
+    height: 150.0,
+    child: new Carousel(
+      boxFit: BoxFit.cover,
+      images:[
+        AssetImage('images/c1.jpg'),
+        AssetImage('images/m1.jpeg'),
+        AssetImage('images/m2.jpg'),
+        AssetImage('images/w1.jpeg'),
+        AssetImage('images/w3.jpeg'),
+        AssetImage('images/w4.jpeg'),
+      ],
+      autoplay: true,
+      animationCurve: Curves.fastLinearToSlowEaseIn,
+      animationDuration: Duration(milliseconds: 1000),
+      dotSize: 4.0,
+      //dotColor: ,
+      indicatorBgPadding: 4.0,
+    ),
+  );
     return Scaffold(
       appBar: new AppBar(
+        elevation: 0.1,//removes shadow
         backgroundColor: Colors.red,
         title: Text('DoLocs'),
         actions: <Widget>[
@@ -94,18 +118,42 @@ class _HomepageState extends State<Homepage> {
               onTap: (){},
               child: ListTile(
                 title: Text('Settings'),
-                leading: Icon(Icons.settings),
+                leading: Icon(Icons.settings,  color: Colors.blue,),
               ),
             ),
             InkWell(
               onTap: (){},
               child: ListTile(
                 title: Text('About'),
-                leading: Icon(Icons.help),
+                leading: Icon(Icons.help, color: Colors.greenAccent,),
               ),
             ),
           ],
         ),
+      ),
+      body: new ListView(
+        children: <Widget>[
+          //IMAGE CAROUSEL begins Here
+          image_carousel,
+          //padding widget
+          new Padding(padding: const EdgeInsets.all(8.0),
+              child: new Text('Categories'),),
+
+          //Horizontal list view BEGINS HERE
+          HorizontalList(),
+
+          //padding widget
+          new Padding(padding: const EdgeInsets.all(15.0),
+            child: new Text('Products'),),
+
+          //Grid view
+          Container(
+            height: 320.0,
+            child: Products(),
+          ),
+
+
+        ],
       ),
     );
   }
