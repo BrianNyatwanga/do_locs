@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "981529436527",
+    "firebase_url": "https://dolocs-e6970.firebaseio.com",
+    "project_id": "dolocs-e6970",
+    "storage_bucket": "dolocs-e6970.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:981529436527:android:151be1c17982815b99c89a",
+        "android_client_info": {
+          "package_name": "com.terahertz.do_locs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "981529436527-udcum9o4qfme0k5fm2i5ajsbfbu657bp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.terahertz.do_locs",
+            "certificate_hash": "f2504f673902a1e05b2f167cb0e7fbe42e0a0230"
+          }
+        },
+        {
+          "client_id": "981529436527-guokoht7033je7gsguh5v75mol090gp8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2TTmfcAm4dIhs31PUKXaUEHwxhDaJ-rg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "981529436527-guokoht7033je7gsguh5v75mol090gp8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

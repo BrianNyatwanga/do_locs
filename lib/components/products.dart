@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 //internal imports
 import 'package:do_locs/pages/product_details.dart';
 
+//======================= PRODUCTS =============================================
 class Products extends StatefulWidget {
   @override
   _ProductsState createState() => _ProductsState();
@@ -82,6 +83,7 @@ class _ProductsState extends State<Products> {
     },
   ];
 
+//====================== GRID VIEW =============================================
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -119,11 +121,13 @@ class Single_prod extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Hero(
-        tag: prod_name,
+        tag: new Text('hero 1'),
         child: Material(
           child: InkWell(
-            onTap: () => Navigator.of(context).push(new MaterialPageRoute(
-                builder: (context) => new ProductDetails(
+            onTap: () =>
+                Navigator.of(context).push(new MaterialPageRoute(
+                    builder: (context) =>
+                    new ProductDetails(
                       //PASSING THE VALUES OF PROD DETAILS
                       product_detail_name: prod_name,
                       product_detail_new_price: prod_price,
@@ -162,6 +166,7 @@ class Single_prod extends StatelessWidget {
     );
   }
 }
+
 /*ListTile(
 leading: Text(
 prod_name,

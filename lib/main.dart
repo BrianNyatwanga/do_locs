@@ -37,10 +37,12 @@ class _HomepageState extends State<Homepage> {
         //animationDuration: Duration(milliseconds: 2000),
         dotSize: 4.0,
         //dotColor: ,
+        dotBgColor: Colors.transparent,
         indicatorBgPadding: 4.0,
       ),
   );
     return Scaffold(
+//================= APP BAR ================================================
       appBar: new AppBar(
         elevation: 0.1,//removes shadow
         backgroundColor: Colors.red,
@@ -60,16 +62,18 @@ class _HomepageState extends State<Homepage> {
               onPressed: () {})
         ],
       ),
+
+//================== DRAWER MENU ===========================================
       drawer: new Drawer(
         child: new ListView(
           children: <Widget>[
             //header drawer
             new UserAccountsDrawerHeader(
-                accountName: Text('Brian Nyatwanga'),
-                accountEmail: Text('briannyatwanga@gmail.com'),
-            currentAccountPicture: GestureDetector(
-              child: new CircleAvatar(
-                backgroundColor: Colors.grey,
+              accountName: Text('Brian Nyatwanga'),
+              accountEmail: Text('briannyatwanga@gmail.com'),
+              currentAccountPicture: GestureDetector(
+                child: new CircleAvatar(
+                  backgroundColor: Colors.grey,
                 child: Icon(Icons.person, color: Colors.white),
               ),
             ),
@@ -77,40 +81,40 @@ class _HomepageState extends State<Homepage> {
                 color: Colors.red,
               ),
             ),
-            // body
+//=============== BODY =====================================================
             InkWell(
               onTap: (){},
               child: ListTile(
                 title: Text('Home Page'),
-                leading: Icon(Icons.home),
+                leading: Icon(Icons.home, color: Colors.red,),
               ),
             ),
             InkWell(
               onTap: (){},
               child: ListTile(
                 title: Text('My Account'),
-                leading: Icon(Icons.person),
+                leading: Icon(Icons.person, color: Colors.red,),
               ),
             ),
             InkWell(
               onTap: (){},
               child: ListTile(
                 title: Text('My Orders'),
-                leading: Icon(Icons.shopping_basket),
+                leading: Icon(Icons.shopping_basket, color: Colors.red,),
               ),
             ),
             InkWell(
               onTap: (){},
               child: ListTile(
-                title: Text('Categories'),
-                leading: Icon(Icons.dashboard),
+                title: Text('Shopping Cart'),
+                leading: Icon(Icons.shopping_cart, color: Colors.red,),
               ),
             ),
             InkWell(
               onTap: (){},
               child: ListTile(
                 title: Text('Favourites'),
-                leading: Icon(Icons.favorite),
+                leading: Icon(Icons.favorite, color: Colors.red,),
               ),
             ),
             Divider(),
@@ -118,42 +122,42 @@ class _HomepageState extends State<Homepage> {
               onTap: (){},
               child: ListTile(
                 title: Text('Settings'),
-                leading: Icon(Icons.settings,  color: Colors.blue,),
+                leading: Icon(Icons.settings),
               ),
             ),
             InkWell(
-              onTap: (){},
+              onTap: () {},
               child: ListTile(
                 title: Text('About'),
-                leading: Icon(Icons.help, color: Colors.greenAccent,),
+                leading: Icon(Icons.help),
               ),
             ),
           ],
         ),
       ),
-      //======================BODY========================================
-      body: new ListView(
-        children: <Widget>[
-//=======================IMAGE CAROUSEL==============================
-          image_carousel,
+//======================  FIRST PAGE =======================================
+      body: new Column(
+          children: <Widget>[
+//======================= IMAGE CAROUSEL ===================================
+            //image_carousel,
 
-//=======================HORIZONTAL LIST VIEW =======================
-          new Padding(padding: const EdgeInsets.all(8.0),
-            child: new Text('Categories'),),
-          HorizontalList(),
+//======================= HORIZONTAL LIST VIEW =============================
+            new Padding(padding: const EdgeInsets.all(4.0),
+              child: new Text('Categories'),),
+            HorizontalList(),
 
-//======================PRODUCTS=====================================
-          new Padding(padding: const EdgeInsets.all(8.0),
-            child: new Text('Products'),),
+//====================== PRODUCTS ==========================================
+            new Padding(padding: const EdgeInsets.all(4.0),
+              child: new Text('Products'),),
 
-//=============Grid view
-          Container(
-            height: 300.0,
-            child: Products(),
-          ),
-          //MAKE PADDING AT BOTTOM OF GRID
-          //new Padding(padding: const EdgeInsets.all(8.0)),
-        ]
+//=============Grid View
+            //Container(
+            //height: 300.0,
+            //child:
+            Flexible(child: Products(),)
+            //),
+            //new Padding(padding: const EdgeInsets.all(8.0)),
+          ]
       ),
     );
   }
